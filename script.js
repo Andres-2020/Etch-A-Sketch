@@ -74,7 +74,7 @@ function createGrid () {
 
 createGrid();
 
-range.addEventListener ('change', () => {
+range.addEventListener ('input', () => {
     grid.innerHTML = '';
     color = colorPicker.value;
     text.innerText = `${size} x ${size}`
