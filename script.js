@@ -1,10 +1,10 @@
+// Variables
+
 const colorPicker = document.querySelector ('#color');
 
 let color = colorPicker.value;
 
 const random = document.querySelector ('#random');
-
-let randomRGB;
 
 const eraser = document.querySelector ('#eraser');
 
@@ -18,6 +18,8 @@ let size = range.value;
 
 const grid = document.querySelector ('#grid');
 
+// Function declarations
+
 function randomColor () {
     const r = Math.floor(Math.random()*256);
     const g = Math.floor(Math.random()*256);
@@ -26,8 +28,8 @@ function randomColor () {
     return rgb;
 }
 
-function createGrid () {
-    function gridDisplay () {
+function gridDisplay () {
+    for (let i = 1; i < (size * size) + 1; i++) {
         grid.style.display = 'grid';
         grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
         grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -36,8 +38,8 @@ function createGrid () {
 
         function mouseOver () {
             div.addEventListener ('mouseover', () => {
-                color = colorPicker.value;
-                div.style.backgroundColor = `${color}`;
+            color = colorPicker.value;
+            div.style.backgroundColor = `${color}`;
             });
         }
 
@@ -49,15 +51,15 @@ function createGrid () {
         
         random.addEventListener ('click', () => {
             div.addEventListener ('mouseover', () => {
-                color = randomColor();
-                div.style.backgroundColor = `${color}`;
+            color = randomColor();
+            div.style.backgroundColor = `${color}`;
             });
         });
         
         eraser.addEventListener ('click', () => {
             div.addEventListener ('mouseover', () => {
-                color = 'white';
-                div.style.backgroundColor = `${color}`;
+            color = 'white';
+            div.style.backgroundColor = `${color}`;
             });
         });
         
@@ -65,19 +67,15 @@ function createGrid () {
             div.style.backgroundColor = `white`;
             mouseOver();
         });
-
-    }
-    for (let i = 1; i < (size * size) + 1; i++) {
-        gridDisplay();
     }
 }
 
-createGrid();
+gridDisplay();
 
 range.addEventListener ('input', () => {
     grid.innerHTML = '';
     color = colorPicker.value;
-    text.innerText = `${size} x ${size}`
     size = range.value;
-    createGrid();
+    text.innerText = `${size} x ${size}`
+    gridDisplay();
 });
