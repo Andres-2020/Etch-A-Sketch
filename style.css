@@ -1,0 +1,233 @@
+/* General styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 26px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* outline: solid red 1px; */
+}
+
+html, body, main {
+    height: 100%;
+}
+
+/* Flexbox */
+
+body, aside, #size, #grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav, main, #examples, footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Colors */
+
+header, footer, button {
+    background-color: rgb(15,118,110);
+}
+
+nav, a, button {
+    color: white;
+}
+
+body, main, input {
+    background-color: rgb(205, 216, 226);
+}
+
+#grid {
+    outline: solid rgb(15,118,110) 2px;
+}
+
+#grid > * {
+    background-color: white;
+    outline: solid grey 1px;
+}
+
+/* Header and footer */
+
+header, footer {
+    width: 100%;
+    padding: 20px;
+}
+
+nav {
+    gap: 20px;
+}
+
+/* Main content */
+
+main {
+    justify-content: center;
+    width: 100%;
+    gap: 15px;
+}
+
+aside {
+    width: 270px;
+    gap: 35px;
+}
+
+#grid {
+    height: 560px;
+    width: 560px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#grid > * {
+    height: 100%;
+    width: 100%;
+}
+
+#examples {
+    flex-wrap: wrap;
+    height: 450px;
+    width: 270px;
+    gap: 15px;
+}
+
+/* Input and media */
+
+input, button {
+    height: 40px;
+    width: 180px;
+    border-style: none;
+}
+
+button {
+    border-radius: 12px;
+}
+
+img {
+    width: 125px;
+    height: auto;
+}
+
+/* Transitions */
+
+.link, a, button {
+    transition: 0.5s ease;
+}
+
+.link:hover, button:hover {
+    transform: scale(1.1, 1.1);
+}
+
+a:hover, button:hover {
+    color: rgb(255,209,91);
+}
+
+/* Animations */
+
+#random {
+    animation-name: randomColors;
+    animation-duration: 25s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes randomColors {
+    0%{background-color: rgb(15,118,110);}
+    14%{background-color: red;}
+    28%{background-color: orange;}
+    42%{background-color: yellow;}
+    56%{background-color: green;}
+    70%{background-color: blue;}
+    84%{background-color: purple;}
+    100%{background-color: rgb(15,118,110);}
+}
+
+/* Media queries */
+
+@media all and (max-width: 1141px) {
+    aside, #examples {
+        width: 200px;
+    }
+
+    #grid {
+        height: 450px;
+        width: 450px;
+    }
+
+    #examples {
+        height: 300px;
+    }
+
+    img {
+        height: 80px;
+        width: auto;
+    }
+}
+
+@media all and (max-width: 901px) {
+    * {
+        font-size: 22px;
+    }
+
+    main {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    aside {
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 100px;
+        width: 450px;
+        gap: 15px;
+    }
+
+    aside > p, #size > p {
+        display: none;
+    }
+
+    #grid {
+        height: 350px;
+        width: 350px;
+    }
+
+    #examples {
+        display: none;
+    }
+
+    input, button {
+        width: 150px;
+        font-size: 22px;
+    }
+}
+
+@media all and (max-width: 456px) {
+    header, footer {
+        padding: 15px;
+    }
+
+    main {
+        gap: 40px;
+    }
+
+    aside {
+        height: 60px;
+        width: 300px;
+        gap: 5px;
+    }
+
+    #grid {
+        height: 310px;
+        width: 310px;
+    }
+
+    input, button {
+        height: 30px;
+        width: 100px;
+        font-size: 16px;
+    }
+}
